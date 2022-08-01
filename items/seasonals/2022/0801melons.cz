@@ -1,0 +1,12 @@
+SeasonalGroup {
+	name = Melons FlashMOB
+	year = 2022
+	start = 2022-08-01T00:00:00-05:00
+	end = 2022-08-02T23:59:00-05:00
+}
+
+Scatter {
+	name = Watermelon
+	id = 3929
+	state = Virtual
+}

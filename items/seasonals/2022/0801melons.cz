@@ -6,7 +6,13 @@ SeasonalGroup {
 }
 
 Scatter {
-	name = Watermelon
-	id = 3929
+	name = Watermelon Virtual
+	id = 3930
 	state = Virtual
+}
+
+Scatter {
+	name = Watermelon Physical
+	id = 3929
+	state = Physical
 }

@@ -12,18 +12,21 @@ template MechScatter from Scatter {
     standalone
 }
 
-template Mech(name, id, scatter:name, scatter:id, broken:name, broken:id) {
+template Mech(name, id, scatter:name, scatter:id, broken:name, broken:id, ...scatter, ...broken) {
     MechBouncer {
         name = $name
         id = $id
+        ...
     }
     MechScatter {
         name = $scatter:name
         id = $(scatter:id || id + 2)
+        ...scatter
     } if scatter:name
     BrokenMechBouncer {
         name = $broken:name
         id = $(broken:id || id + 1)
+        ...broken
     } if broken:name
 }
 
@@ -53,5 +56,18 @@ Mech {
     scatter {
         name = Sm0ke Song
         id = 3913
+    }
+}
+
+Mech {
+    name = M1LK Man
+    id = 3925
+    broken {
+        id = 3926
+    }
+    scatter {
+        name = S.P.I.L.T. Milk
+        id = 3927
+        icons = s.p.i.l.t.milk, spiltmilk
     }
 }

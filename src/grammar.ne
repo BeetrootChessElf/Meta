@@ -65,11 +65,13 @@ template_params -> "(" _ template_params_list _ ")" {% d => d[2] %}
 
 template_params_list -> template_params_list "," _ template_param {% d => [...d[0], d[3]] %} | template_param
 
-template_param -> (("." "." "."):+):? [^\s\(\)\,\.]:+ {% d => ({
+template_param -> (modifier:+):? [^\s\(\)\,\.]:+ {% d => ({
     item: "template_param",
     name: d[1].map((i: any) => i.value).join(""),
-    modifiers: d[0]?.map((i: any) => i[0].value) ?? []
+    modifiers: d[0]?.map((i: any) => i[0]) ?? []
 }) %}
+
+modifier -> "." "." "." {% d => "..." %}
 
 template_internal_list -> template_internal_list _nll "\n" _ builder_statement {% d => ([...d[0], d[4]]) %} | builder_statement
 

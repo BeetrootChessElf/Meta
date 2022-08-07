@@ -63,6 +63,7 @@ Mech {
     name = M1LK Man
     id = 3925
     broken {
+        name = Missing M1LK Man
         id = 3926
     }
     scatter {

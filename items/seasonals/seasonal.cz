@@ -11,3 +11,19 @@ global template SeasonalGroup(year, start, end) from Group {
     }
     parents + $(year) Seasonal Specials
 }
+
+global template SeasonalPOB(year, lands_on, scatter:name) from Bouncer {
+	tags + BouncerTPOB, BouncerSeasonal
+	bouncer {
+		lands_on = $lands_on
+	}
+	scatterer {
+		scatters = $scatter:name
+	}
+}
+
+global template SeasonalScatter(name,id) from Scatter {
+	name = $name
+	id = $id
+	standalone
+}

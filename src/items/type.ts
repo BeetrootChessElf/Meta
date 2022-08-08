@@ -774,6 +774,11 @@ export class TypeDatabase {
             value: [[type.id.toString()]],
             operation: Operation.Equals,
           },
+          {
+            key: "tags",
+            value: type.tags.map(i => [TypeTags[i]]),
+            operation: Operation.Equals,
+          },
         ])
     );
     for (const type of this.types) {

@@ -1,0 +1,29 @@
+template GardenFlamingo(name, id, feather:name, feather:id, lands_on) {
+    SeasonalPOB {
+        tags + BouncerSeasonal2022
+        lands_on + (
+            Greenie
+            >(tags = "TypeVirtual")
+            $lands_on
+        )
+        scatter:name + $feather:name
+        name = $name
+        id = $id
+        groups = Garden Flamingos
+    }
+    SeasonalScatter {
+        name = $feather:name
+        id = $feather:id
+        groups = Garden Flamingos
+    }
+}
+
+# todo: add all flamingos to this file from 0101gardenFlamingos.ts
+
+GardenFlamingo {
+	name = Birthday Garden Flamingo
+	id = 3490
+	feather:name = Confetti Feathers
+	feather:id = 3491
+	lands_on + Fire Mystery
+}

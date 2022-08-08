@@ -267,7 +267,7 @@ export class CZPropertySet {
     for (const value of values) {
       if ("type" in value && value.type === "expression_function") {
         this.getProperty(key)[inverse ? "remove" : "add"](value);
-        return;
+        continue;
       }
       if (!("length" in value)) {
         const property = this.paramsSet?.getReferenceProperty(value, this.params ?? [], this.index);

@@ -8,6 +8,7 @@ import { greenie } from "../../normal/misc";
 import { electricMystery } from "../../normal/mystery";
 import { skyland, treehouse } from "../../normal/destination";
 import { gardenItemsGroup } from "../../bouncers/_index";
+import { treasureChest } from "../../evolutions/reseller";
 
 export const gardenFlamingosGroup = new Year2022SeasonalGroup({
   name: "Garden Flamingos",
@@ -38,19 +39,41 @@ export const newYearGardenFlamingo = new GardenFlamingo("New Year Garden Flaming
   .scattererScatters(festiveFeathers);
 
 export const spaceFlightFeathers = new FlamingoFeathers("Space Flight Feathers", 3503);
-export const astronautGardenFlamingo = new GardenFlamingo(
-  "Astronaut Garden Flamingo",
-  3502
-).scattererScatters(spaceFlightFeathers);
+export const astronautGardenFlamingo = new GardenFlamingo("Astronaut Garden Flamingo", 3502)
+  .addBouncerLandsOn(
+    greenie,
+    type => type.hasTags(TypeTags.TypeReseller) && !type.hasTags(TypeTags.Scatter),
+    type => type.hasTags(TypeTags.TypeVirtual),
+    treehouse,
+    skyland
+  )
+  .scattererScatters(spaceFlightFeathers);
 
 export const flannelFeathers = new FlamingoFeathers("Flannel Feathers", 3505);
-export const goldMinerGardenFlamingo = new GardenFlamingo("Gold Miner Garden Flamingo", 3504);
+export const goldMinerGardenFlamingo = new GardenFlamingo("Gold Miner Garden Flamingo", 3504)
+  .addBouncerLandsOn(
+    greenie,
+    type => type.hasTags(TypeTags.TypeVirtual),
+    type => type.hasTags(TypeTags.TypeReseller) && !type.hasTags(TypeTags.Scatter),
+    treehouse,
+    skyland,
+    treasureChest
+  )
+  .scattererScatters(flannelFeathers);
 
 export const crikeyFeathers = new FlamingoFeathers("Crikey Feathers", 3507);
 export const aussieExplorerGardenFlamingo = new GardenFlamingo(
   "Aussie Explorer Garden Flamingo",
   3506
-);
+)
+  .addBouncerLandsOn(
+    greenie,
+    type => type.hasTags(TypeTags.TypeReseller) && !type.hasTags(TypeTags.Scatter),
+    type => type.hasTags(TypeTags.TypeVirtual),
+    treehouse,
+    skyland
+  )
+  .scattererScatters(crikeyFeathers);
 
 export const bearSkinFeathers = new FlamingoFeathers("Bear Skin Feathers", 3509);
 export const queensGuardsmanGardenFlamingo = new GardenFlamingo(
@@ -58,6 +81,13 @@ export const queensGuardsmanGardenFlamingo = new GardenFlamingo(
   3508
 )
   .addIcon("queensguardsmangardenflamingo")
+  .addBouncerLandsOn(
+    greenie,
+    type => type.hasTags(TypeTags.TypeReseller) && !type.hasTags(TypeTags.Scatter),
+    type => type.hasTags(TypeTags.TypeVirtual),
+    treehouse,
+    skyland
+  )
   .scattererScatters(bearSkinFeathers);
 
 export const lovelyFeathers = new FlamingoFeathers("Lovely Feathers", 3481);
@@ -90,4 +120,7 @@ export const marchHareGardenFlamingo = new GardenFlamingo(
 ).scattererScatters(madFeathers);
 
 export const tropicalFeathers = new FlamingoFeathers("Tropical Feathers", 3489);
-export const alohaGardenFlamingo = new GardenFlamingo("Aloha Garden Flamingo", 3488);
+export const alohaGardenFlamingo = new GardenFlamingo(
+  "Aloha Garden Flamingo",
+  3488
+).scattererScatters(tropicalFeathers);

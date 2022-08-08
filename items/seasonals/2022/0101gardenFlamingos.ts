@@ -118,9 +118,3 @@ export const marchHareGardenFlamingo = new GardenFlamingo(
   "March Hare Garden Flamingo",
   3748
 ).scattererScatters(madFeathers);
-
-export const tropicalFeathers = new FlamingoFeathers("Tropical Feathers", 3489);
-export const alohaGardenFlamingo = new GardenFlamingo(
-  "Aloha Garden Flamingo",
-  3488
-).scattererScatters(tropicalFeathers);

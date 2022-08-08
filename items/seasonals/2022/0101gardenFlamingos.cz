@@ -13,7 +13,7 @@ template GardenFlamingo(name, id, feather:name, feather:id, lands_on) {
     }
     SeasonalScatter {
         name = $feather:name
-        id = $feather:id
+        id = $(feather:id || id + 1)
         groups = Garden Flamingos
     }
 }
@@ -21,9 +21,15 @@ template GardenFlamingo(name, id, feather:name, feather:id, lands_on) {
 # todo: add all flamingos to this file from 0101gardenFlamingos.ts
 
 GardenFlamingo {
+    name = Aloha Garden Flamingo
+    id = 3488
+    feather:name = Tropical Feathers
+    lands_on + Treehouse, POI Beach, Skyland, tPOB Pub
+}
+
+GardenFlamingo {
 	name = Birthday Garden Flamingo
 	id = 3490
 	feather:name = Confetti Feathers
-	feather:id = 3491
 	lands_on + Fire Mystery
 }
